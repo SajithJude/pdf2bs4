@@ -1,10 +1,17 @@
 import PyPDF2
 from bs4 import BeautifulSoup
+import streamlit as st
 
-# Open the PDF file
-with open('example.pdf', 'rb') as pdf_file:
+
+uploaded_file = st.file_uploader("Choose a PDF file", type="pdf")
+
+if uploaded_file is not None:
+    # pdf_doc = fitz.open(stream=uploaded_file.getvalue(), filetype="pdf")
+    
+# # Open the PDF file
+# with open('example.pdf', 'rb') as pdf_file:
     # Create a PDF reader object
-    pdf_reader = PyPDF2.PdfFileReader(pdf_file)
+    pdf_reader = PyPDF2.PdfFileReader(uploaded_file)
 
     # Get the number of pages in the PDF
     num_pages = pdf_reader.getNumPages()
