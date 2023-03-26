@@ -46,9 +46,9 @@ if uploaded_file is not None:
             para_elem = {'para': []}
 
             # Check if the paragraph is a heading
-            if paragraph.startswith('Chapter'):
+            if paragraph.startswith("D:\Bank-17Sep"):
                 # Add the heading level to the element
-                level = paragraph.count(' ') + 2
+                level = paragraph.count(' ') + 1
                 para_elem['para'].append(('heading', level))
 
                 # Add the heading text to the element
