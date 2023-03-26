@@ -68,8 +68,8 @@ if uploaded_file is not None:
         pages.append(page_elem)
 
 # Output the result as XML
-xml_str = '<pages>'
-for page in pages:
-    xml_str += str(page)
-xml_str += '</pages>'
-st.write(xml_str)
+        xml_str = '<pages>'
+        for page in pages:
+            xml_str += str(page)
+        xml_str += '</pages>'
+        st.write(xml_str)
