@@ -31,18 +31,21 @@ if uploaded_file is not None:
         page_text = page.extract_text()
 
         # Create a new XML element to store the page content
-       page_elem = {'page': []}
+        page_elem = {'page': []}
 
         # Split the text into paragraphs
         paragraphs = page_text.split('\n\n')
 
         # Loop through the paragraphs
         for paragraph in paragraphs:
+
             # Strip any leading or trailing whitespace
             paragraph = paragraph.strip()
 
+
             # Create a new paragraph element
             para_elem = {'para': []}
+
 
             # Check if the paragraph is a heading
             if paragraph.startswith('Chapter'):
