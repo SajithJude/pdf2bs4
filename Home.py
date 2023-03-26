@@ -21,6 +21,7 @@ if uploaded_file is not None:
 
     # Create a new XML element to store the table of contents
     toc_element = soup.new_tag('toc')
+    pages = []
 
     # Loop through the pages in the PDF
     for page_num in range(num_pages):
