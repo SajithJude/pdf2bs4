@@ -46,20 +46,20 @@ if uploaded_file is not None:
             para_elem = {'para': []}
 
             # Check if the paragraph is a heading
-            if paragraph.startswith("D:\Bank-17Sep"):
-                # Add the heading level to the element
-                level = paragraph.count(' ') + 1
-                para_elem['para'].append(('heading', level))
+        if paragraph.startswith("D:\Bank-17Sep"):
+            # Add the heading level to the element
+            level = paragraph.count(' ') + 1
+            para_elem['para'].append(('heading', level))
 
-                # Add the heading text to the element
-                text = paragraph.lstrip('0123456789. ')
-                para_elem['para'].append(('text', text))
-            else:
-                # Add the paragraph text to the element
-                para_elem['para'].append(('text', paragraph))
+            # Add the heading text to the element
+            text = paragraph.lstrip('0123456789. ')
+            para_elem['para'].append(('text', text))
+        else:
+            # Add the paragraph text to the element
+            para_elem['para'].append(('text', paragraph))
 
-            # Add the paragraph element to the page element
-            page_elem['page'].append(para_elem)
+        # Add the paragraph element to the page element
+        page_elem['page'].append(para_elem)
 
         # Add the page element to the container
         pages.append(page_elem)
