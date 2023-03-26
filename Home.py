@@ -25,7 +25,7 @@ if uploaded_file is not None:
     # Loop through the pages in the PDF
     for page_num in range(num_pages):
         # Get the page object
-        page = pdf_reader.getPage(page_num)
+        page = pdf_reader.pages[page_num]
 
         # Extract the text from the page
         page_text = page.extractText()
