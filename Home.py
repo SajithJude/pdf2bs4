@@ -17,7 +17,7 @@ if uploaded_file is not None:
     num_pages = len(pdf_reader.pages)
 
     # Create a BeautifulSoup object to store the XML
-    soup = BeautifulSoup(features='xml')
+    soup = BeautifulSoup(features='lxml')
 
     # Create a new XML element to store the table of contents
     toc_element = soup.new_tag('toc')
