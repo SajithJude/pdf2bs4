@@ -31,17 +31,41 @@ if uploaded_file is not None:
         page_text = page.extract_text()
 
         # Create a new XML element to store the page content
-        page_element = soup.new_tag('page', number=page_num)
+       page_elem = {'page': []}
 
-        # Add the page content to the XML element
-        page_element.string = page_text
+        # Split the text into paragraphs
+        paragraphs = page_text.split('\n\n')
 
-        # Add the page element to the table of contents
-        toc_element.append(page_element)
+        # Loop through the paragraphs
+        for paragraph in paragraphs:
+            # Strip any leading or trailing whitespace
+            paragraph = paragraph.strip()
 
-    # Add the table of contents to the XML
-    soup.append(toc_element)
+            # Create a new paragraph element
+            para_elem = {'para': []}
 
-# Save the XML to a file
-# with open('example.xml', 'w') as xml_file:
-    st.write(str(soup))
+            # Check if the paragraph is a heading
+            if paragraph.startswith('Chapter'):
+                # Add the heading level to the element
+                level = paragraph.count(' ') + 1
+                para_elem['para'].append(('heading', level))
+
+                # Add the heading text to the element
+                text = paragraph.lstrip('0123456789. ')
+                para_elem['para'].append(('text', text))
+            else:
+                # Add the paragraph text to the element
+                para_elem['para'].append(('text', paragraph))
+
+            # Add the paragraph element to the page element
+            page_elem['page'].append(para_elem)
+
+        # Add the page element to the container
+        pages.append(page_elem)
+
+# Output the result as XML
+xml_str = '<pages>'
+for page in pages:
+    xml_str += str(page)
+xml_str += '</pages>'
+st.write(xml_str)
