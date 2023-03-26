@@ -43,5 +43,5 @@ if uploaded_file is not None:
     soup.append(toc_element)
 
 # Save the XML to a file
-with open('example.xml', 'w') as xml_file:
-    xml_file.write(str(soup))
+# with open('example.xml', 'w') as xml_file:
+    st.write(str(soup))
