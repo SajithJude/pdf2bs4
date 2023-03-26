@@ -69,4 +69,4 @@ if uploaded_file is not None:
         for page in pages:
             xml_str += str(page)
         xml_str += '</pages>'
-        st.code(xml_str)
+        st.write(xml_str)
