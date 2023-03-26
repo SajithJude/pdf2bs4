@@ -11,10 +11,10 @@ if uploaded_file is not None:
 # # Open the PDF file
 # with open('example.pdf', 'rb') as pdf_file:
     # Create a PDF reader object
-    pdf_reader = PyPDF2.PdfFileReader(uploaded_file)
+    pdf_reader = PyPDF2.PdfReader(uploaded_file)
 
     # Get the number of pages in the PDF
-    num_pages = pdf_reader.getNumPages()
+    num_pages = len(pdf_reader.pages)
 
     # Create a BeautifulSoup object to store the XML
     soup = BeautifulSoup(features='xml')
