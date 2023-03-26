@@ -37,21 +37,18 @@ if uploaded_file is not None:
         # Split the text into paragraphs
         paragraphs = page_text.split('\n\n')
 
-        # Loop through the paragraphs
-        for paragraph in paragraphs:
-
+        # Skip the first three paragraphs (or lines) on each page
+        for i in range(3, len(paragraphs)):
             # Strip any leading or trailing whitespace
-            paragraph = paragraph.strip()
-
+            paragraph = paragraphs[i].strip()
 
             # Create a new paragraph element
             para_elem = {'para': []}
 
-
             # Check if the paragraph is a heading
             if paragraph.startswith('Chapter'):
                 # Add the heading level to the element
-                level = paragraph.count(' ') + 1
+                level = paragraph.count(' ') + 2
                 para_elem['para'].append(('heading', level))
 
                 # Add the heading text to the element
