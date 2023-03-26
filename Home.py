@@ -28,7 +28,7 @@ if uploaded_file is not None:
         page = pdf_reader.pages[page_num]
 
         # Extract the text from the page
-        page_text = page.extractText()
+        page_text = page.extract_text()
 
         # Create a new XML element to store the page content
         page_element = soup.new_tag('page', number=page_num)
